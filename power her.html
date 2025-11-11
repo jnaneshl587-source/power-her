@@ -523,6 +523,97 @@
             box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
         }
 
+        /* Profile Section Styles */
+        .profile-section {
+            display: none;
+            background: rgba(123, 31, 162, 0.1);
+            border-radius: 20px;
+            padding: 50px;
+            margin: 80px 0;
+            border: 1px solid rgba(123, 31, 162, 0.3);
+        }
+
+        .profile-section h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #7B1FA2;
+            text-align: center;
+        }
+
+        .profile-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .profile-card {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(30, 30, 46, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+        }
+
+        .profile-card h3 {
+            color: #7B1FA2;
+            margin-bottom: 20px;
+            font-size: 24px;
+            border-bottom: 2px solid #7B1FA2;
+            padding-bottom: 10px;
+        }
+
+        .profile-info {
+            margin-bottom: 15px;
+        }
+
+        .profile-info label {
+            color: #b0b0b0;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .profile-info span {
+            color: #f0f0f0;
+            font-size: 16px;
+        }
+
+        .profile-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .profile-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .edit-btn {
+            background: rgba(0, 188, 212, 0.2);
+            color: #00bcd4;
+            border: 1px solid #00bcd4;
+        }
+
+        .edit-btn:hover {
+            background: rgba(0, 188, 212, 0.3);
+        }
+
+        .logout-btn {
+            background: rgba(244, 67, 54, 0.2);
+            color: #f44336;
+            border: 1px solid #f44336;
+        }
+
+        .logout-btn:hover {
+            background: rgba(244, 67, 54, 0.3);
+        }
+
         footer {
             text-align: center;
             padding: 40px 0;
@@ -657,6 +748,10 @@
                 padding: 30px 20px;
                 margin: 20px auto;
             }
+
+            .profile-container {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -672,188 +767,269 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Safety Map</a></li>
-                    <li><a href="#"><i class="fas fa-phone-alt"></i> Emergency</a></li>
-                    <li><a href="#"><i class="fas fa-book"></i> Resources</a></li>
-                    <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                    <li><a href="#" class="nav-link" data-page="home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="safety-map"><i class="fas fa-map-marker-alt"></i> Safety
+                            Map</a></li>
+                    <li><a href="#" class="nav-link" data-page="emergency"><i class="fas fa-phone-alt"></i>
+                            Emergency</a></li>
+                    <li><a href="#" class="nav-link" data-page="resources"><i class="fas fa-book"></i> Resources</a>
+                    </li>
+                    <li><a href="#" class="nav-link" data-page="profile"><i class="fas fa-user"></i> Profile</a></li>
                 </ul>
             </nav>
         </header>
 
-        <section class="hero">
-            <h2>Your Ultimate Safety Companion</h2>
-            <p>Power Her is an advanced women safety application designed specifically for remote areas with limited
-                connectivity. Our app works offline and ensures your safety with cutting-edge features.</p>
-            <div>
-                <button class="cta-button" id="downloadBtn">Download Now</button>
-                <button class="secondary-button" id="learnMoreBtn">Learn More</button>
-            </div>
-        </section>
+        <!-- Main Home Page Content (Visible by default) -->
+        <div id="homePage">
+            <section class="hero">
+                <h2>Your Ultimate Safety Companion</h2>
+                <p>Power Her is an advanced women safety application designed specifically for remote areas with limited
+                    connectivity. Our app works offline and ensures your safety with cutting-edge features.</p>
+                <div>
+                    <button class="cta-button" id="downloadBtn">Download Now</button>
+                    <button class="secondary-button" id="learnMoreBtn">Learn More</button>
+                </div>
+            </section>
 
-        <section class="features">
-            <div class="feature-card">
-                <i class="fas fa-bell feature-icon"></i>
-                <h3>Smart Alert System</h3>
-                <p>Send emergency alerts to your trusted contacts with your live location, even without internet
-                    connectivity using SMS fallback.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-map-marked-alt feature-icon"></i>
-                <h3>Offline Maps & Navigation</h3>
-                <p>Access detailed offline maps with marked safe zones, police stations, hospitals, and women shelters
-                    in remote areas.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-phone feature-icon"></i>
-                <h3>Emergency Call Routing</h3>
-                <p>Automatically connect to the nearest emergency services based on your location, with multi-language
-                    support.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-microphone feature-icon"></i>
-                <h3>Voice Activation</h3>
-                <p>Activate emergency mode with voice commands like "Help" or "Emergency" when your hands are not free.
-                </p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-record-vinyl feature-icon"></i>
-                <h3>Audio/Video Evidence</h3>
-                <p>Discreetly record audio and video during emergencies, automatically saved to your secure cloud
-                    storage.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-walking feature-icon"></i>
-                <h3>Safe Route Planning</h3>
-                <p>Get AI-powered safe route suggestions based on time of day, crime statistics, and well-lit paths.</p>
-            </div>
-        </section>
+            <section class="features">
+                <div class="feature-card">
+                    <i class="fas fa-bell feature-icon"></i>
+                    <h3>Smart Alert System</h3>
+                    <p>Send emergency alerts to your trusted contacts with your live location, even without internet
+                        connectivity using SMS fallback.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-map-marked-alt feature-icon"></i>
+                    <h3>Offline Maps & Navigation</h3>
+                    <p>Access detailed offline maps with marked safe zones, police stations, hospitals, and women
+                        shelters
+                        in remote areas.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-phone feature-icon"></i>
+                    <h3>Emergency Call Routing</h3>
+                    <p>Automatically connect to the nearest emergency services based on your location, with
+                        multi-language
+                        support.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-microphone feature-icon"></i>
+                    <h3>Voice Activation</h3>
+                    <p>Activate emergency mode with voice commands like "Help" or "Emergency" when your hands are not
+                        free.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-record-vinyl feature-icon"></i>
+                    <h3>Audio/Video Evidence</h3>
+                    <p>Discreetly record audio and video during emergencies, automatically saved to your secure cloud
+                        storage.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-walking feature-icon"></i>
+                    <h3>Safe Route Planning</h3>
+                    <p>Get AI-powered safe route suggestions based on time of day, crime statistics, and well-lit paths.
+                    </p>
+                </div>
+            </section>
 
-        <section class="emergency-section" id="emergencySection">
-            <h2>Emergency Quick Actions</h2>
-            <p>In case of emergency, use these quick action buttons. All features work offline and will automatically
-                sync when connectivity is restored.</p>
-            <div class="emergency-buttons">
-                <div class="emergency-btn" data-action="alert">
-                    <i class="fas fa-bell"></i>
-                    <span>Alert Contacts</span>
+            <section class="emergency-section" id="emergencySection">
+                <h2>Emergency Quick Actions</h2>
+                <p>In case of emergency, use these quick action buttons. All features work offline and will
+                    automatically
+                    sync when connectivity is restored.</p>
+                <div class="emergency-buttons">
+                    <div class="emergency-btn" data-action="alert">
+                        <i class="fas fa-bell"></i>
+                        <span>Alert Contacts</span>
+                    </div>
+                    <div class="emergency-btn" data-action="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Share Location</span>
+                    </div>
+                    <div class="emergency-btn" data-action="call">
+                        <i class="fas fa-phone"></i>
+                        <span>Call Emergency</span>
+                    </div>
+                    <div class="emergency-btn" data-action="audio">
+                        <i class="fas fa-record-vinyl"></i>
+                        <span>Audio Record</span>
+                    </div>
+                    <div class="emergency-btn" data-action="video">
+                        <i class="fas fa-video"></i>
+                        <span>Video Record</span>
+                    </div>
+                    <div class="emergency-btn" data-action="fakecall">
+                        <i class="fas fa-fingerprint"></i>
+                        <span>Fake Call</span>
+                    </div>
                 </div>
-                <div class="emergency-btn" data-action="location">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Share Location</span>
-                </div>
-                <div class="emergency-btn" data-action="call">
-                    <i class="fas fa-phone"></i>
-                    <span>Call Emergency</span>
-                </div>
-                <div class="emergency-btn" data-action="audio">
-                    <i class="fas fa-record-vinyl"></i>
-                    <span>Audio Record</span>
-                </div>
-                <div class="emergency-btn" data-action="video">
-                    <i class="fas fa-video"></i>
-                    <span>Video Record</span>
-                </div>
-                <div class="emergency-btn" data-action="fakecall">
-                    <i class="fas fa-fingerprint"></i>
-                    <span>Fake Call</span>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="location-section">
-            <h2>Your Safety Network</h2>
-            <div class="location-info">
-                <div class="location-card">
-                    <h3>Current Location</h3>
-                    <p>Latitude: <span id="latitude">28.6139° N</span></p>
-                    <p>Longitude: <span id="longitude">77.2090° E</span></p>
-                    <p>Accuracy: <span id="accuracy">15 meters</span></p>
-                    <p>Last Updated: <span id="lastUpdated">2 mins ago</span></p>
-                    <button class="secondary-button" style="margin-top: 10px; padding: 8px 16px; font-size: 14px;"
-                        id="updateLocationBtn">Update Location</button>
+            <section class="location-section">
+                <h2>Your Safety Network</h2>
+                <div class="location-info">
+                    <div class="location-card">
+                        <h3>Current Location</h3>
+                        <p>Latitude: <span id="latitude">28.6139° N</span></p>
+                        <p>Longitude: <span id="longitude">77.2090° E</span></p>
+                        <p>Accuracy: <span id="accuracy">15 meters</span></p>
+                        <p>Last Updated: <span id="lastUpdated">2 mins ago</span></p>
+                        <button class="secondary-button" style="margin-top: 10px; padding: 8px 16px; font-size: 14px;"
+                            id="updateLocationBtn">Update Location</button>
+                    </div>
+                    <div class="location-card">
+                        <h3>Safe Zones Nearby</h3>
+                        <p>Police Station: 1.2 km</p>
+                        <p>Hospital: 2.5 km</p>
+                        <p>Women Shelter: 3.1 km</p>
+                        <p>Safe Store: 0.8 km</p>
+                    </div>
+                    <div class="location-card">
+                        <h3>Emergency Contacts</h3>
+                        <p>Police: 100</p>
+                        <p>Ambulance: 102</p>
+                        <p>Women Helpline: 1091</p>
+                        <p>Domestic Abuse: 181</p>
+                    </div>
                 </div>
-                <div class="location-card">
-                    <h3>Safe Zones Nearby</h3>
-                    <p>Police Station: 1.2 km</p>
-                    <p>Hospital: 2.5 km</p>
-                    <p>Women Shelter: 3.1 km</p>
-                    <p>Safe Store: 0.8 km</p>
+            </section>
+
+            <section class="safety-tips">
+                <h2>Women Safety Tips</h2>
+                <div class="tips-container">
+                    <div class="tip-card">
+                        <h3>Travel Safety</h3>
+                        <p>Always share your live location with trusted contacts when traveling alone. Avoid isolated
+                            routes, especially after dark.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h3>Digital Safety</h3>
+                        <p>Keep your device charged and carry a power bank. Use discreet safety apps that can be
+                            activated
+                            quickly in emergencies.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h3>Public Transport</h3>
+                        <p>Note down vehicle numbers before boarding. Sit near the driver in taxis or use women-only
+                            compartments when available.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h3>Self-Defense</h3>
+                        <p>Learn basic self-defense techniques. Carry legal self-defense tools like pepper spray where
+                            permitted.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h3>Social Awareness</h3>
+                        <p>Trust your instincts. If a situation feels unsafe, remove yourself immediately. Be aware of
+                            your
+                            surroundings.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h3>Emergency Preparedness</h3>
+                        <p>Save emergency contacts on speed dial. Know the emergency numbers for your location and have
+                            a
+                            safety plan.</p>
+                    </div>
                 </div>
-                <div class="location-card">
+            </section>
+
+            <section class="resources">
+                <div class="resource-card">
+                    <h3>Safety Training</h3>
+                    <p>Access free online self-defense tutorials and safety awareness courses designed specifically for
+                        women.</p>
+                    <a href="#" class="resource-link">Explore Resources <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="resource-card">
+                    <h3>Legal Support</h3>
+                    <p>Connect with legal aid organizations and understand your rights with our comprehensive legal
+                        guides.
+                    </p>
+                    <a href="#" class="resource-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="resource-card">
+                    <h3>Community Forum</h3>
+                    <p>Join our safe community space to share experiences, safety tips, and support other women.</p>
+                    <a href="#" class="resource-link">Join Community <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </section>
+
+            <!-- Registration Section -->
+            <section class="register-section" id="registerSection">
+                <h2>Join the Power Her Community</h2>
+                <p>Register now to access exclusive features, connect with our safety community, and get personalized
+                    safety recommendations. Your information is secure and protected.</p>
+                <button class="register-button" id="registerBtn">
+                    <i class="fas fa-user-plus"></i> Register Now
+                </button>
+            </section>
+        </div>
+
+        <!-- Profile Section (Hidden by default) -->
+        <section class="profile-section" id="profileSection">
+            <h2>Your Profile</h2>
+            <div class="profile-container">
+                <div class="profile-card">
+                    <h3>Personal Information</h3>
+                    <div class="profile-info">
+                        <label>Full Name</label>
+                        <span id="profileName">-</span>
+                    </div>
+                    <div class="profile-info">
+                        <label>Email Address</label>
+                        <span id="profileEmail">-</span>
+                    </div>
+                    <div class="profile-info">
+                        <label>Phone Number</label>
+                        <span id="profilePhone">-</span>
+                    </div>
+                    <div class="profile-info">
+                        <label>Age</label>
+                        <span id="profileAge">-</span>
+                    </div>
+                    <div class="profile-info">
+                        <label>Location</label>
+                        <span id="profileLocation">-</span>
+                    </div>
+                    <div class="profile-actions">
+                        <button class="profile-btn edit-btn" id="editProfileBtn">
+                            <i class="fas fa-edit"></i> Edit Profile
+                        </button>
+                        <button class="profile-btn logout-btn" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                </div>
+                <div class="profile-card">
                     <h3>Emergency Contacts</h3>
-                    <p>Police: 100</p>
-                    <p>Ambulance: 102</p>
-                    <p>Women Helpline: 1091</p>
-                    <p>Domestic Abuse: 181</p>
+                    <div class="profile-info">
+                        <label>Primary Emergency Contact</label>
+                        <span id="emergencyContact1">-</span>
+                    </div>
+                    <div class="profile-info">
+                        <label>Secondary Emergency Contact</label>
+                        <span id="emergencyContact2">-</span>
+                    </div>
+                    <div class="profile-info">
+                        <label>Trusted Friend/Family</label>
+                        <span id="trustedContact">-</span>
+                    </div>
+                    <h3 style="margin-top: 30px;">Safety Preferences</h3>
+                    <div class="profile-info">
+                        <label>Alert Sound</label>
+                        <span id="alertSound">Loud Siren</span>
+                    </div>
+                    <div class="profile-info">
+                        <label>Auto-share Location</label>
+                        <span id="autoLocation">Enabled</span>
+                    </div>
+                    <div class="profile-info">
+                        <label>Voice Activation</label>
+                        <span id="voiceActivation">Enabled</span>
+                    </div>
                 </div>
             </div>
-        </section>
-
-        <section class="safety-tips">
-            <h2>Women Safety Tips</h2>
-            <div class="tips-container">
-                <div class="tip-card">
-                    <h3>Travel Safety</h3>
-                    <p>Always share your live location with trusted contacts when traveling alone. Avoid isolated
-                        routes, especially after dark.</p>
-                </div>
-                <div class="tip-card">
-                    <h3>Digital Safety</h3>
-                    <p>Keep your device charged and carry a power bank. Use discreet safety apps that can be activated
-                        quickly in emergencies.</p>
-                </div>
-                <div class="tip-card">
-                    <h3>Public Transport</h3>
-                    <p>Note down vehicle numbers before boarding. Sit near the driver in taxis or use women-only
-                        compartments when available.</p>
-                </div>
-                <div class="tip-card">
-                    <h3>Self-Defense</h3>
-                    <p>Learn basic self-defense techniques. Carry legal self-defense tools like pepper spray where
-                        permitted.</p>
-                </div>
-                <div class="tip-card">
-                    <h3>Social Awareness</h3>
-                    <p>Trust your instincts. If a situation feels unsafe, remove yourself immediately. Be aware of your
-                        surroundings.</p>
-                </div>
-                <div class="tip-card">
-                    <h3>Emergency Preparedness</h3>
-                    <p>Save emergency contacts on speed dial. Know the emergency numbers for your location and have a
-                        safety plan.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="resources">
-            <div class="resource-card">
-                <h3>Safety Training</h3>
-                <p>Access free online self-defense tutorials and safety awareness courses designed specifically for
-                    women.</p>
-                <a href="#" class="resource-link">Explore Resources <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="resource-card">
-                <h3>Legal Support</h3>
-                <p>Connect with legal aid organizations and understand your rights with our comprehensive legal guides.
-                </p>
-                <a href="#" class="resource-link">Learn More <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="resource-card">
-                <h3>Community Forum</h3>
-                <p>Join our safe community space to share experiences, safety tips, and support other women.</p>
-                <a href="#" class="resource-link">Join Community <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </section>
-
-        <!-- Registration Section -->
-        <section class="register-section">
-            <h2>Join the Power Her Community</h2>
-            <p>Register now to access exclusive features, connect with our safety community, and get personalized safety
-                recommendations. Your information is secure and protected.</p>
-            <button class="register-button" id="registerBtn">
-                <i class="fas fa-user-plus"></i> Register Now
-            </button>
         </section>
 
         <footer>
@@ -1051,8 +1227,8 @@
 
             // Simulate API call
             setTimeout(() => {
-                // In a real app, you would send this data to a server
-                console.log('User registration data:', userData);
+                // Store user data in localStorage
+                localStorage.setItem('powerHerUser', JSON.stringify(userData));
 
                 // Show success message
                 showToast('✅ Account created successfully! Welcome to Power Her!');
@@ -1061,14 +1237,55 @@
                 event.target.reset();
                 document.getElementById('registrationPage').style.display = 'none';
 
+                // Show profile section and hide registration section
+                document.getElementById('registerSection').style.display = 'none';
+                document.getElementById('profileSection').style.display = 'block';
+
+                // Update profile information
+                updateProfileInfo(userData);
+
                 // Restore button text
                 submitBtn.innerHTML = originalText;
             }, 2000);
         }
 
+        // Update profile information
+        function updateProfileInfo(userData) {
+            document.getElementById('profileName').textContent = userData.fullName;
+            document.getElementById('profileEmail').textContent = userData.email;
+            document.getElementById('profilePhone').textContent = userData.phoneNumber;
+            document.getElementById('profileAge').textContent = userData.age;
+            document.getElementById('profileLocation').textContent = userData.place;
+            document.getElementById('emergencyContact1').textContent = userData.emergencyContact;
+
+            // Set default values for other fields
+            document.getElementById('emergencyContact2').textContent = '+91 9876543210';
+            document.getElementById('trustedContact').textContent = 'Priya Sharma (Sister)';
+        }
+
+        // Handle logout
+        function handleLogout() {
+            localStorage.removeItem('powerHerUser');
+            document.getElementById('profileSection').style.display = 'none';
+            document.getElementById('registerSection').style.display = 'block';
+            showToast('You have been logged out successfully.');
+        }
+
+        // Check if user is already registered
+        function checkUserStatus() {
+            const userData = localStorage.getItem('powerHerUser');
+            if (userData) {
+                const user = JSON.parse(userData);
+                document.getElementById('registerSection').style.display = 'none';
+                document.getElementById('profileSection').style.display = 'block';
+                updateProfileInfo(user);
+            }
+        }
+
         // Initialize the app
         document.addEventListener('DOMContentLoaded', function () {
             createStars();
+            checkUserStatus();
 
             // Add click events to emergency buttons
             const emergencyBtns = document.querySelectorAll('.emergency-btn');
@@ -1103,6 +1320,30 @@
 
             // Add form submission handler
             document.getElementById('registrationForm').addEventListener('submit', handleRegistration);
+
+            // Add logout handler
+            document.getElementById('logoutBtn').addEventListener('click', handleLogout);
+
+            // Add navigation handlers
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const page = this.getAttribute('data-page');
+
+                    if (page === 'profile') {
+                        const userData = localStorage.getItem('powerHerUser');
+                        if (userData) {
+                            document.getElementById('homePage').style.display = 'none';
+                            document.getElementById('profileSection').style.display = 'block';
+                        } else {
+                            showToast('Please register first to view your profile.');
+                        }
+                    } else if (page === 'home') {
+                        document.getElementById('homePage').style.display = 'block';
+                        document.getElementById('profileSection').style.display = 'none';
+                    }
+                });
+            });
 
             // Add keyboard shortcuts for emergency actions
             document.addEventListener('keydown', function (e) {
